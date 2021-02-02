@@ -32,7 +32,7 @@ import {
   CreateAccountButtonText,
 } from './styles';
 
-interface SubmitData {
+interface SignInFormData {
   email: string;
   password: string;
 }
@@ -42,12 +42,10 @@ const SignIn: React.FC = () => {
   const passwordInputRef = useRef<TextInput>(null);
   const navigation = useNavigation();
 
-  const { signIn, user } = useAuth();
-
-  console.log(user);
+  const { signIn } = useAuth();
 
   const handleSignIn = useCallback(
-    async (data: SubmitData) => {
+    async (data: SignInFormData) => {
       try {
         formRef.current?.setErrors({});
 
@@ -72,13 +70,11 @@ const SignIn: React.FC = () => {
 
           formRef.current?.setErrors(errors);
 
-          return;
+          Alert.alert(
+            'Erro na autenticação',
+            'Ocorreu um erro ao fazer login, cheque as credenciais.',
+          );
         }
-
-        Alert.alert(
-          'Erro na autenticação',
-          'Ocorreu um erro ao fazer login, cheque as credenciais.',
-        );
       }
     },
     [signIn],
