@@ -119,7 +119,7 @@ const Profile: React.FC = () => {
         );
       }
     },
-    [goBack],
+    [goBack, updateUser],
   );
 
   return (
@@ -131,7 +131,7 @@ const Profile: React.FC = () => {
       >
         <ScrollView
           keyboardShouldPersistTaps="handled"
-          contentContainerStyle={{ flex: 1 }}
+          contentContainerStyle={{ flexGrow: 1 }}
         >
           <Container>
             <BackButton onPress={handleGoBack}>
