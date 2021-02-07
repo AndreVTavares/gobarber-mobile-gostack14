@@ -3,7 +3,6 @@ import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { ScrollView } from 'react-native';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
 
@@ -50,9 +49,8 @@ const Dashboard: React.FC = () => {
   );
 
   const navigateToProfile = useCallback(() => {
-    // navigation.navigate('Profile');
-    signOut();
-  }, [signOut]);
+    navigate('Profile');
+  }, [navigate]);
 
   return (
     <Container>
